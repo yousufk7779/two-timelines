@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Two Timelines Simulator | Digital Dad vs Traditional Dad</title>
+  <meta name="description" content="A simple 60-second calculator to compare your 9-to-5 job against building digital assets. Official companion to Digital Dad, Traditional Dad by Sameer Sir.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- AMBIENT GLOW EFFECTS -->
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-center"></div>
+
+  <!-- TOP BRANDING NAVBAR -->
+  <header class="navbar">
+    <div class="nav-brand">
+      <div class="brand-logo-frame">
+        <img src="assets/jiguu_logo.png" alt="JiGUU" class="brand-logo" onerror="this.style.display='none'">
+      </div>
+      <div>
+        <div class="brand-title">TWO TIMELINES <span class="calc-tag">SIMULATOR</span></div>
+        <div class="brand-sub">Official Companion • <em>Digital Dad, Traditional Dad</em> by <strong>SAMEER SIR</strong></div>
+      </div>
+    </div>
+    
+    <div class="nav-controls">
+      <div class="currency-picker">
+        <button class="curr-btn active" data-currency="USD" id="btn-usd"><span class="curr-symbol">$</span> USD</button>
+        <button class="curr-btn" data-currency="INR" id="btn-inr"><span class="curr-symbol">₹</span> INR</button>
+        <button class="curr-btn" data-currency="GBP" id="btn-gbp"><span class="curr-symbol">£</span> GBP</button>
+        <button class="curr-btn" data-currency="EUR" id="btn-eur"><span class="curr-symbol">€</span> EUR</button>
+      </div>
+      <a href="#toolkit-section" class="nav-link-btn">🎁 Free Toolkits</a>
+    </div>
+  </header>
+
+  <!-- LUXURY HERO SECTION -->
+  <section class="hero-simple">
+    <div class="hero-badge">
+      <span class="pulsar-dot"></span>
+      <span>THE 60-SECOND SOVEREIGN AUDIT</span>
+    </div>
+
+    <h1 class="hero-title">
+      Where Will You Be in 5 Years?<br>
+      <span class="gold-shimmer-text">Job Alone vs Job + 1 Hour of Digital Assets</span>
+    </h1>
+
+    <p class="hero-desc">
+      Robert Kiyosaki taught industrial wealth. <strong>Sameer Sir</strong> shows you the AI-era escape route.
+      Enter 3 numbers below to see the exact month your digital income permanently replaces your living costs.
+    </p>
+
+    <!-- QUICK PRESETS ROW -->
+    <div class="presets-container">
+      <span class="presets-label">⚡ 1-Click Fill:</span>
+      <div class="presets-pills-wrap">
+        <button class="preset-pill active" id="preset-starter">
+          <span class="pill-dot starter-dot"></span> Starter Professional
+        </button>
+        <button class="preset-pill" id="preset-mid">
+          <span class="pill-dot mid-dot"></span> Mid-Career Worker
+        </button>
+        <button class="preset-pill" id="preset-senior">
+          <span class="pill-dot senior-dot"></span> Senior Professional
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN EASY CALCULATOR CONTAINER -->
+  <main class="easy-container">
+
+    <!-- STEP 1: 3 SIMPLE GLOWING INPUTS -->
+    <section class="step-card step-inputs">
+      <div class="card-glass-top"></div>
+      <div class="step-header">
+        <div class="step-circle">1</div>
+        <div>
+          <h2>Step 1: Your Current Financial Reality</h2>
+          <p>Just 3 simple sliders &mdash; zero complicated finance jargon.</p>
+        </div>
+      </div>
+
+      <div class="inputs-grid">
+        
+        <!-- INPUT 1: SALARY -->
+        <div class="input-box">
+          <div class="input-header-row">
+            <div class="icon-avatar blue-avatar">💼</div>
+            <div>
+              <label for="input-salary">Monthly Take-Home Salary</label>
+              <span class="sub-label">Your net paycheck from your job</span>
+            </div>
+          </div>
+          <div class="display-val-box">
+            <span class="slider-display-val" id="val-salary">$3,500</span>
+            <span class="val-period">/ month</span>
+          </div>
+          <div class="slider-wrap">
+            <input type="range" id="input-salary" min="500" max="15000" value="3500" step="100" class="clean-slider">
+          </div>
+          <div class="slider-ticks" id="ticks-salary"><span>$500</span><span>$5K</span><span>$10K</span><span>$15K</span></div>
+        </div>
+
+        <!-- INPUT 2: EXPENSES -->
+        <div class="input-box">
+          <div class="input-header-row">
+            <div class="icon-avatar red-avatar">🏠</div>
+            <div>
+              <label for="input-expenses">Monthly Living Expenses</label>
+              <span class="sub-label">Rent, groceries, bills, family burn</span>
+            </div>
+          </div>
+          <div class="display-val-box">
+            <span class="slider-display-val" id="val-expenses">$2,400</span>
+            <span class="val-period">/ month</span>
+          </div>
+          <div class="slider-wrap">
+            <input type="range" id="input-expenses" min="400" max="12000" value="2400" step="100" class="clean-slider red-slider">
+          </div>
+          <div class="slider-ticks" id="ticks-expenses"><span>$400</span><span>$4K</span><span>$8K</span><span>$12K</span></div>
+        </div>
+
+        <!-- INPUT 3: DAILY DIGITAL SHIFT -->
+        <div class="input-box gold-input-box">
+          <div class="input-header-row">
+            <div class="icon-avatar gold-avatar">⏰</div>
+            <div>
+              <label for="input-shift-hours">Daily Focus on Digital Assets</label>
+              <span class="sub-label">Morning shift before job hours (Ch. 7)</span>
+            </div>
+          </div>
+          <div class="display-val-box">
+            <span class="slider-display-val gold-display" id="val-shift-hours">1 Hour / Day</span>
+            <span class="val-period gold-period">deep work</span>
+          </div>
+          <div class="slider-wrap">
+            <input type="range" id="input-shift-hours" min="0.5" max="3.0" value="1.0" step="0.5" class="clean-slider gold-slider">
+          </div>
+          <div class="slider-ticks"><span>30 min</span><span>1 hour</span><span>2 hours</span><span>3 hours</span></div>
+        </div>
+
+      </div>
+
+      <!-- OPTIONAL ADVANCED OPTIONS ACCORDION -->
+      <details class="advanced-accordion">
+        <summary>
+          <span class="accordion-icon">⚙️</span>
+          <span>Fine-Tune Parameters (Age, Inflation, Asset Engine) &mdash; <em>Optional</em></span>
+        </summary>
+        <div class="advanced-body">
+          <div class="adv-item">
+            <label for="input-age">Your Current Age: <strong id="val-age" class="gold-text">28</strong> yrs</label>
+            <input type="range" id="input-age" min="18" max="60" value="28" step="1" class="clean-slider">
+          </div>
+          <div class="adv-item">
+            <label for="select-engine">Digital Asset Focus:</label>
+            <select id="select-engine" class="adv-select">
+              <option value="content" selected>Digital IP, Newsletters & Media (Ch. 6)</option>
+              <option value="saas">Micro-SaaS & AI Computational Workflows (Ch. 4)</option>
+              <option value="arbitrage">Remote Global Services + USD Arbitrage (Ch. 5)</option>
+              <option value="templates">Programmatic Tools & Specialized Checklists</option>
+            </select>
+          </div>
+          <div class="adv-item">
+            <label for="input-inflation">Real Inflation Rate: <strong id="val-inflation" class="red-text">7.5%</strong> / yr</label>
+            <input type="range" id="input-inflation" min="3.0" max="12.0" value="7.5" step="0.5" class="clean-slider red-slider">
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- STEP 2: CLEAR & ATTRACTIVE COMPARISON CARDS -->
+    <section class="step-card">
+      <div class="card-glass-top"></div>
+      <div class="step-header">
+        <div class="step-circle">2</div>
+        <div class="step-header-with-tabs">
+          <div>
+            <h2>Step 2: Head-to-Head Comparison</h2>
+            <p>Look what happens to your bank balance and freedom over time:</p>
+          </div>
+          <div class="easy-tabs">
+            <button class="easy-tab-btn" data-years="1">In 1 Year</button>
+            <button class="easy-tab-btn" data-years="3">In 3 Years</button>
+            <button class="easy-tab-btn active" data-years="5">In 5 Years</button>
+            <button class="easy-tab-btn" data-years="10">In 10 Years</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DUAL GLOWING CARDS -->
+      <div class="comparison-grid">
+        
+        <!-- CARD A: ONLY JOB -->
+        <div class="comp-card card-job">
+          <div class="card-glow-edge red-edge"></div>
+          <div>
+            <div class="comp-badge badge-job">🔴 TIMELINE A: ONLY 9-TO-5 JOB</div>
+            <h3 class="comp-title">The Traditional Path</h3>
+            <p class="comp-desc">Trading 40 hours every week for a single linear salary.</p>
+
+            <div class="comp-stat-list">
+              <div class="comp-stat-row">
+                <span class="stat-lbl">Monthly Cash Left:</span>
+                <span class="stat-val" id="trad-cashflow">$1,100 / mo</span>
+              </div>
+              <div class="comp-stat-row">
+                <span class="stat-lbl">Savings in Bank (<span class="stat-years">5 Yrs</span>):</span>
+                <span class="stat-val" id="trad-wealth">$72,400</span>
+              </div>
+              <div class="comp-stat-row">
+                <span class="stat-lbl">Corporate Hours Given Away:</span>
+                <span class="stat-val text-dim" id="trad-hours">10,400 Hours</span>
+              </div>
+              <div class="comp-stat-row">
+                <span class="stat-lbl">Single-Source Vulnerability:</span>
+                <span class="stat-val red-text">100% Dependent</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-summary-box box-negative">
+            <span class="box-icon">⚠️</span>
+            <div>
+              <strong>The OpEx Reality:</strong> If corporate management restructures or downsizes, your income drops to <strong>$0</strong> overnight.
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD B: DIGITAL DAD -->
+        <div class="comp-card card-digital">
+          <div class="card-glow-edge gold-edge"></div>
+          <div class="gold-corner-orb"></div>
+          <div>
+            <div class="comp-badge badge-digital">🟢 TIMELINE B: DIGITAL DAD (SOVEREIGN)</div>
+            <h3 class="comp-title">Job + Daily Digital Shift</h3>
+            <p class="comp-desc">Keeping your job while building automated digital equity in the morning.</p>
+
+            <div class="comp-stat-list">
+              <div class="comp-stat-row">
+                <span class="stat-lbl">Extra Digital Cashflow:</span>
+                <span class="stat-val gold-text" id="dig-cashflow">+$5,650 / mo</span>
+              </div>
+              <div class="comp-stat-row">
+                <span class="stat-lbl">Total Net Worth (<span class="stat-years">5 Yrs</span>):</span>
+                <span class="stat-val green-text" id="dig-wealth">$284,000</span>
+              </div>
+              <div class="comp-stat-row">
+                <span class="stat-lbl">Time Invested in Yourself:</span>
+                <span class="stat-val highlight-blue" id="dig-hours">1,825 Hours</span>
+              </div>
+              <div class="comp-stat-row">
+                <span class="stat-lbl">Financial Sovereignty Score:</span>
+                <span class="stat-val gold-text" id="dig-score">92 / 100</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="comp-summary-box box-positive">
+            <span class="box-icon">🎉</span>
+            <div>
+              <strong>Freedom Crossover Day:</strong> By <strong id="verdict-month" class="gold-text">Month 24</strong>, your digital income completely pays all your family living costs! You now work strictly by choice.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STEP 3: HIGH-AESTHETIC DIVERGENCE CHART -->
+    <section class="step-card">
+      <div class="card-glass-top"></div>
+      <div class="step-header">
+        <div class="step-circle">3</div>
+        <div>
+          <h2>Step 3: The Exponential Divergence Curve</h2>
+          <p>The green dot marks your <strong>Freedom Crossover</strong> month &mdash; when digital assets eclipse your living expenses.</p>
+        </div>
+      </div>
+
+      <div class="chart-wrapper">
+        <canvas id="timelineChart"></canvas>
+      </div>
+
+      <div class="chart-legend-simple">
+        <span class="legend-badge gold-legend">
+          <span class="legend-dot gold-dot"></span> Golden Line: Digital Assets Growth (Exponential)
+        </span>
+        <span class="legend-badge gray-legend">
+          <span class="legend-dot gray-dot"></span> Gray Line: Job Savings (Linear / Eroding)
+        </span>
+        <span class="legend-badge green-legend">
+          <span class="legend-dot green-dot"></span> Green Dot: Freedom Crossover
+        </span>
+      </div>
+
+      <!-- ONE-CLICK SHARE BOX -->
+      <div class="easy-share-box">
+        <div class="share-copy-text">
+          <div class="share-quote">"THE INDUSTRIAL SCRIPT IS DEAD. STOP RENTING YOUR LIFE BY THE HOUR."</div>
+          <div class="share-sub-quote">
+            My Freedom Month: <strong id="share-exit-month" class="gold-text">Month 24</strong> &bull; 
+            5-Year Wealth Advantage: <strong id="share-delta-val" class="green-text">+$211,600</strong>
+          </div>
+        </div>
+        <button id="btn-copy-share" class="btn-gold-easy">
+          <span>📋</span> Copy Results to Share
+        </button>
+      </div>
+      <div id="copy-toast" class="toast-hidden">✓ Results copied to clipboard! Share on WhatsApp, LinkedIn or Twitter.</div>
+    </section>
+
+    <!-- STEP 4: FREE COMPANION TOOLS (BEAUTIFUL CARDS) -->
+    <section class="step-card" id="toolkit-section">
+      <div class="card-glass-top"></div>
+      <div class="step-header">
+        <div class="step-circle">4</div>
+        <div>
+          <h2>Step 4: Free Reader Companion Tools</h2>
+          <p>As a reader of <strong>Digital Dad, Traditional Dad</strong>, download these 3 instant implementation resources:</p>
+        </div>
+      </div>
+
+      <div class="tools-grid-easy">
+        
+        <!-- TOOL 1 -->
+        <div class="tool-card-easy tool-gold-glow">
+          <div class="tool-badge-easy">PDF BLUEPRINT</div>
+          <div class="tool-icon-wrapper gold-tool-icon">📄</div>
+          <h3>The 90-Minute Morning Routine</h3>
+          <p>The uninterrupted deep-work protocol from Chapter 7 to build digital assets before 8:30 AM.</p>
+          <button class="btn-action-tool" onclick="openToolkitModal('shift')">
+            Open & Download Checklist &rarr;
+          </button>
+        </div>
+
+        <!-- TOOL 2 -->
+        <div class="tool-card-easy tool-blue-glow">
+          <div class="tool-badge-easy">NOTION WORKSPACE</div>
+          <div class="tool-icon-wrapper blue-tool-icon">📊</div>
+          <h3>Sovereign Balance Sheet</h3>
+          <p>Audited Notion workspace tracking hard-currency cashflow, digital assets, and Freedom Runway.</p>
+          <button class="btn-action-tool" onclick="openToolkitModal('notion')">
+            Duplicate Notion Template &rarr;
+          </button>
+        </div>
+
+        <!-- TOOL 3 -->
+        <div class="tool-card-easy tool-green-glow">
+          <div class="tool-badge-easy">AUDIT WORKBOOK</div>
+          <div class="tool-icon-wrapper green-tool-icon">📝</div>
+          <h3>10 Chapter Worksheets</h3>
+          <p>The complete digital worksheets: Fragility Diagnostic, Zero-Marginal Cost Map, and Exit Checklist.</p>
+          <button class="btn-action-tool" onclick="openToolkitModal('worksheets')">
+            View 10 Worksheets &rarr;
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LUXURY BOOK SHOWCASE: 10 COMPLETE CHAPTERS -->
+    <section class="book-card-easy" id="book-section">
+      <div class="book-flex">
+        <div class="book-img-box">
+          <div class="book-mockup-frame">
+            <img src="assets/book_mockup.jpg" alt="Digital Dad, Traditional Dad 3D Mockup" class="book-img-clean">
+          </div>
+          <span class="book-spec-pill">129 PAGES &bull; 6" &times; 9" PRINT FORMAT</span>
+        </div>
+        
+        <div class="book-info-box">
+          <span class="badge-gold">2026 INTERNATIONAL MASTER EDITION</span>
+          <h2 class="book-title-clean">Digital Dad, Traditional Dad</h2>
+          <h3 class="book-sub-clean">The New Rules of Wealth, Leverage, and Freedom in the Age of AI</h3>
+          
+          <div class="author-attribution">
+            <span class="auth-label">Authored by</span>
+            <strong class="auth-name">SAMEER SIR</strong>
+            <span class="auth-title">• Founder & Lead Educator, JiGUU</span>
+          </div>
+
+          <p class="book-desc-clean">
+            This book is your complete operational manual. It takes the concepts from this simulator 
+            and gives you step-by-step blueprints to build sovereign wealth that no employer can seize.
+          </p>
+
+          <!-- CLEAN 10 CHAPTERS ARCHITECTURE LIST -->
+          <div class="chapters-clean-list">
+            <div class="ch-part-block">
+              <span class="ch-part-title">PART I: THE TRADITIONAL TRAP</span>
+              <span class="ch-part-desc">Ch 1: The Outdated Script &bull; Ch 2: The Silent Eroders &bull; Ch 3: Redefining Assets</span>
+            </div>
+            <div class="ch-part-block">
+              <span class="ch-part-title">PART II: THE DIGITAL DAD PARADIGM</span>
+              <span class="ch-part-desc">Ch 4: 4 Pillars of Leverage &bull; Ch 5: Currency Arbitrage &bull; Ch 6: Zero-Cost Asset Engine</span>
+            </div>
+            <div class="ch-part-block">
+              <span class="ch-part-title">PART III: THE EXECUTION PLAYBOOK</span>
+              <span class="ch-part-desc">Ch 7: The 90-Minute Shift &bull; Ch 8: The Two Timelines &bull; Ch 9: The Sovereign Exit</span>
+            </div>
+            <div class="ch-part-block highlight-manifesto">
+              <span class="ch-part-title gold-title">EPILOGUE / CHAPTER 10: THE SOVEREIGN ARCHITECT'S MANIFESTO</span>
+              <span class="ch-part-desc gold-desc">Signed & Certified by <strong>SAMEER SIR</strong></span>
+            </div>
+          </div>
+
+          <div class="book-buy-row">
+            <button class="btn-gold-easy pulse-btn" onclick="alert('Digital Dad, Traditional Dad manuscript is completely published and ready on Desktop for Amazon KDP launch!');">
+              📖 Read on Amazon KDP (Paperback $14.99)
+            </button>
+            <span class="book-print-note">Amazon Paperback & Kindle eBook Editions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL FOR TOOLKIT PREVIEW -->
+  <div id="toolkit-modal" class="modal-overlay hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modal-title">Reader Companion Resource</h3>
+        <button class="modal-close" onclick="closeToolkitModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body-content"></div>
+      <div class="modal-footer">
+        <button class="btn-gold-easy" onclick="alert('Resource downloaded successfully!'); closeToolkitModal();">Download / Save Resource</button>
+        <button class="btn-close-modal" onclick="closeToolkitModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LUXURY FOOTER -->
+  <footer class="clean-footer">
+    <div class="footer-inner">
+      <div class="footer-title">DIGITAL DAD, TRADITIONAL DAD</div>
+      <p class="footer-motto">Learn Smart &bull; Study Smarter &bull; By JiGUU & Sameer Sir</p>
+      <p class="footer-sub">&copy; 2026 Sameer Khan / JiGUU Publishing. All Rights Reserved. Complete 10 Chapters Master Edition.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
